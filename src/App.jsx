@@ -8,6 +8,7 @@ function App() {
 	const [password, setPassword] = useState('');
 	const [depth, setDepth] = useState(7);
 	const [strongPass, setStrongPass] = useState(null);
+	const [copie, setCopie] = useState(null)
 	const resultInput = useRef()
 
 	const sha256 = input => {
@@ -28,8 +29,11 @@ function App() {
 			setStrongPass(pass);
 		}
 
-		navigator.clipboard.writeText(pass);
-	};
+		navigator.clipboard.writeText(pass)
+			.then(() => setCopie(true),
+				  () => setCopie(false));
+
+	}
 
 	return (
 		<div className="App">
@@ -62,9 +66,13 @@ function App() {
 							ref={resultInput} 
 							value={strongPass} 
 							className="output"
+							onChange={e => null}
 						/>
 					</span>
-					<span className='successMessage'>Password copied to clipbord successfuly</span>
+					{ copie
+						? <span className='successMessage'>Password copied to clipbord successfuly</span>
+						: <span className='errorMessage'>Cannot automaticaly copie password to clipbord</span>
+					}
 				</div>
 			}
 		</div>

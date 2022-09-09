@@ -85,8 +85,14 @@ button:hover {
   justify-content: space-evenly;
 }
 
-.successMessage {
+.successMessage, .errorMessage {
   padding: .5rem 1rem;
+}
 
+.successMessage {
   background-color: rgba(130, 206, 52, .9);
+}
+
+.errorMessage {
+  background-color: rgba(229, 73, 30, 0.9);
 }
