@@ -34,16 +34,37 @@ function App() {
 	return (
 		<div className="App">
 			<h1>Strong password generator</h1>
-			<div className='wrapper'>
-				<input type="text" name="password" onChange={e => setPassword(e.target.value)} />
-				<input type="number" name="depth" onChange={e => setDepth(e.target.value)} />
+			<div className="container">
+				<div className='wrapper'>
+					<input 
+						type="text"
+						name="password" 
+						onChange={e => setPassword(e.target.value)} 
+					/>
+					<input 
+						type="number" 
+						name="depth" 
+						onChange={e => setDepth(e.target.value)}
+					/>
+				</div>
+				<button type="button" onClick={generate}>Generate</button>
 			</div>
-			<button type="button" onClick={generate}>Generate</button>
 			{
 				strongPass &&
-				<div>
-					<h2>Result :</h2>
-					<input type="text" ref={resultInput} value={strongPass} onChange={e => e.target.select()}/>
+				<div className='container'>
+					<h2>Your password</h2>
+					<span 
+						className='blurOverflow'
+						onClick={e => resultInput.current.select()}
+					>
+						<input
+							type="text"
+							ref={resultInput} 
+							value={strongPass} 
+							className="output"
+						/>
+					</span>
+					<span className='successMessage'>Password copied to clipbord successfuly</span>
 				</div>
 			}
 		</div>

@@ -7,3 +7,86 @@
   align-items: center;
   justify-content: space-evenly;
 }
+
+input {
+  all: unset;
+
+  padding: .3rem 1rem;
+  text-align: center;
+
+  border: 1px solid rgba(25, 25, 25, 0.9);
+  border-radius: 45px;
+}
+
+.output {
+  width: 15rem;
+}
+
+.blurOverflow {
+  position: relative;
+
+  width: 10rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.blurOverflow::after {
+  content:'';  
+  position: absolute;
+
+  left: 3rem;
+  width: 10rem;
+  height: 1.5rem;
+
+  background:linear-gradient(90deg, transparent, white);
+}
+
+input[name="password"] {
+  border-radius: 45px 0 0 45px;
+}
+
+input[name="depth"] {
+  border-radius:  0 45px 45px 0;
+  border-left: 1px;
+}
+
+button {
+  all: unset;
+
+  padding: .5rem 1rem;
+
+  border: 1px solid rgba(25, 25, 25, 0.9);
+  border-radius: 45px;
+}
+
+button:hover {
+  background-color: rgba(25, 25, 25, 0.3);
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.wrapper {
+  width: auto;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.successMessage {
+  padding: .5rem 1rem;
+
+  background-color: rgba(130, 206, 52, .9);
+}
